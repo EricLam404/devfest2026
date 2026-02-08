@@ -24,6 +24,10 @@ Create or update `mcp/music-tools/.env` with required values:
 - `ELEVENLABS_API_KEY`
 - `ELEVENLABS_DEFAULT_VOICE_ID` (recommended)
 
+Note: Deployments that only include the `mcp/music-tools` folder should rely on the bundled schema at
+`mcp/music-tools/docs/blueprint_schema.json`. If you customize the schema location, set
+`BLUEPRINT_SCHEMA_PATH` to an absolute path.
+
 ## Stdio mode (local)
 
 ```bash
@@ -88,6 +92,9 @@ Then use `https://<ngrok-host>/mcp` in ElevenLabs.
 - `MCP_ENABLE_LEGACY_SSE=true|false` (default `false`)
 - `MCP_CREATE_SONG_TIMEOUT_MS` default `300000` (gpt-agent tool timeout for long music generation)
 - `MOMENT_API_BASE_URL` default `http://127.0.0.1:8000` (used by `create_moment`)
+- `DO_SPACES_KEY`, `DO_SPACES_SECRET`, `DO_SPACES_REGION`, `DO_SPACES_ENDPOINT`, `DO_SPACES_BUCKET` (upload MCP outputs to Spaces)
+- `DO_SPACES_PUBLIC_BASE_URL` optional public base URL for outputs (defaults to `${DO_SPACES_ENDPOINT}/${DO_SPACES_BUCKET}`)
+- `DO_SPACES_PREFIX` optional key prefix for uploads (default `mcp/outputs`)
 
 ## GPT bridge
 
